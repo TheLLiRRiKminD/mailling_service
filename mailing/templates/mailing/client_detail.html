@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <h2>Данные Клиента</h2>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <dl class="row">
+                    <dt class="col-sm-3">Почта:</dt>
+                    <dd class="col-sm-9">{{ object.email }}</dd>
+
+                    <dt class="col-sm-3">ФИО:</dt>
+                    <dd class="col-sm-9">{{ object.full_name }}</dd>
+
+                    <dt class="col-sm-3">Комментарий:</dt>
+                    <dd class="col-sm-9">{{ object.comment }}</dd>
+
+                    <dt class="col-sm-3">Пользователь:</dt>
+                    <dd class="col-sm-9">{{ object.user }}</dd>
+                </dl>
+                <hr class="my-4">
+                <a href="{% url 'client_update' object.pk %}" class="btn btn-primary btn-lg">Редактировать</a>
+            </div>
+        </main>
+        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+            <p class="mb-1">© 2017–2023 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+{% endblock %}

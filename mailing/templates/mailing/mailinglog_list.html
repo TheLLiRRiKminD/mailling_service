@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="btn p-3">
+        <a href="{% url 'mailing:mailingsettings_create' %}" type="button" class="w-100 btn btn-lg btn-outline-primary">Создать рассылку.</a>
+    </div>
+    <div class="d-flex flex-wrap">
+        {% for object in object_list %}
+            <div class="col-md-3 p-3">
+                <div class="card mb-4 rounded-3 shadow-sm p-3">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">{{ object.mailing }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>{{ object.status }}</li>
+                        </ul>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>last_try - {{ object.timestamp }}</li>
+                        </ul>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>server_response - {{ object.response }}</li>
+                        </ul>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

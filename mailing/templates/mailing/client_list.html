@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="btn p-3">
+        <a href="{% url 'mailing:client_create' %}" type="button" class="w-100 btn btn-lg btn-outline-primary">Создание Клиента.</a>
+    </div>
+    <div class="d-flex flex-wrap">
+        {% for object in object_list %}
+            <div class="col-md-3 p-3">
+                <div class="card mb-4 rounded-3 shadow-sm p-3">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">{{ object.email }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"><small class="text-body-secondary fw-light">{{object.first_name}} {{ object.last_name }}</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>{{ object.comment}}</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'mailing:client_update' object.pk%}" type="button" class="btn btn-sm btn-outline-secondary">Edit<a>
+                                <a href="{% url 'mailing:client_delete' object.pk %}" type="button" class="btn btn-sm btn-outline-danger">Delete<a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

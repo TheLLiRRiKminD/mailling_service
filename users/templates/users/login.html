@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="col-6">
+            <form method="post" enctype="multipart/form-data" class="form-floating">
+                <div class="text-center p-3">
+                    <h3>Авторизация</h3>
+                </div>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="p-2 btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </div>
+{% endblock  %}

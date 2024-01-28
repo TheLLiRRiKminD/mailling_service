@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <h5 class="card-header">Удаление Блога</h5>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <h5 class="card-title">Вы действительно хотите удалить Блог {{ object.title }}</h5>
+                        <button type="submit" class="btn btn-outline-danger">Подтвердить</button>
+                        <a href="{% url 'blog:blogpost_list' %}" class="btn btn-outline-primary">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

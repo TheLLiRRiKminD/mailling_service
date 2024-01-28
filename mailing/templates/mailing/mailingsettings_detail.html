@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Детали Рассылки</h2>
+        </div>
+        <div class="col-md-7 col-lg-8">
+            <dl class="row">
+                <dt class="col-sm-3">Время рассылки:</dt>
+                <dd class="col-sm-9">{{ object.sending_time }}</dd>
+
+                <dt class="col-sm-3">Периодичность:</dt>
+                <dd class="col-sm-9">{{ object.frequency }}</dd>
+
+                <dt class="col-sm-3">Статус:</dt>
+                <dd class="col-sm-9">{{ object.status }}</dd>
+
+                <!-- Другие поля рассылки -->
+
+                {% if object.status == 'completed' %}
+                <dt class="col-sm-3">Тема сообщения:</dt>
+                <dd class="col-sm-9">{{ object.message.subject }}</dd>
+
+                <dt class="col-sm-3">Текст сообщения:</dt>
+                <dd class="col-sm-9">{{ object.message.body }}</dd>
+                {% endif %}
+            </dl>
+        </div>
+    </div>
+{% endblock %}

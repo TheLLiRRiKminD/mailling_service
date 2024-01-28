@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="text-center p-3">
+        <h3>Создайте свой Блог.</h3>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="mb-3">
+                                <button type="submit" class="p-2 btn btn-outline-primary">
+                                    {% if object %}
+                                        Сохранить
+                                    {% else %}
+                                        Создать
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
